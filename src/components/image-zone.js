@@ -21,8 +21,12 @@ export function ImageZone(props) {
     );
 }
 
+const mapStateToProps = state => ({
+    file: state.file
+});
+
 const mapDispatchToProps = dispatch => ({
     loadFile: dataURL => dispatch(loadFile(dataURL))
 });
 
-export default connect(null, mapDispatchToProps)(ImageZone);
+export default connect(mapStateToProps, mapDispatchToProps)(ImageZone);
