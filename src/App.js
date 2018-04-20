@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Proofer } from "./components/proofer";
+import Proofer from "./components/proofer";
 
 import './App.css';
 

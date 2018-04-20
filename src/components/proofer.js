@@ -1,10 +1,10 @@
 import React from "react";
 
-import { TextBox } from "./text-box";
+import TextBox from "./text-box";
 
 import "./proofer.css";
 
-export function Proofer(props) {
+export default function Proofer(props) {
     return (
         <div className="proofer">
             <TextBox />
