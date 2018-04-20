@@ -2,7 +2,7 @@ import React from "react";
 
 import { TextBox } from "./text-box";
 
-import "./text-box.css";
+import "./proofer.css";
 
 export function Proofer(props) {
     return (
