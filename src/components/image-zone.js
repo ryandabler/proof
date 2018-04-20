@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
 
 import { loadFile } from "../actions";
 
@@ -20,6 +21,10 @@ export function ImageZone(props) {
         <input type="file" onChange={(e) => loadFile(e)} />
     );
 }
+
+ImageZone.propTypes = {
+    file: PropTypes.string
+};
 
 const mapStateToProps = state => ({
     file: state.file
