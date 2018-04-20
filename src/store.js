@@ -1,9 +1,9 @@
 import { createStore } from "redux";
 
-import { gardenReducer } from "./reducer";
+import { reducer } from "./reducer";
 
 const store = createStore(
-    gardenReducer
+    reducer
 );
 
 export default store;
