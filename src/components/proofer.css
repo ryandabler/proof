@@ -1,0 +1,5 @@
+.proofer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: minmax(50vh, 100%);
+}
