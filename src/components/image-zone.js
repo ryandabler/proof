@@ -1,6 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
 
+import { loadFile } from "../actions";
+
 import "./image-zone.css";
 
 export function ImageZone(props) {
@@ -9,7 +11,7 @@ export function ImageZone(props) {
         const fileReader = new FileReader();
         fileReader.onload = (loadEvent) => {
           const base64 = loadEvent.target.result;
-          this.setState({file: base64});
+          props.loadFile(base64);
         }
         fileReader.readAsDataURL(file);
     }
@@ -19,4 +21,8 @@ export function ImageZone(props) {
     );
 }
 
-export default connect()(ImageZone);
+const mapDispatchToProps = dispatch => ({
+    loadFile: dataURL => dispatch(loadFile(dataURL))
+});
+
+export default connect(null, mapDispatchToProps)(ImageZone);
