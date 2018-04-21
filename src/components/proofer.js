@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
 import TextBox from "./text-box";
 import ImageZone from "./image-zone";
@@ -16,7 +17,11 @@ export function Proofer(props) {
             </div>
         );
     } else {
-        return <div>Create a new Project</div>;
+        return (
+            <Link to={"/new"}>
+                <div>Create a new Project</div>
+            </Link>
+        );
     }
 }
 
