@@ -3,3 +3,10 @@
     grid-template-columns: 1fr 1fr;
     grid-template-rows: minmax(50vh, 100%);
 }
+
+.new-project-ind {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+}

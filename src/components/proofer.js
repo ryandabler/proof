@@ -18,8 +18,8 @@ export function Proofer(props) {
         );
     } else {
         return (
-            <Link to={"/new"}>
-                <div>Create a new Project</div>
+            <Link to={"/new"} className="plain-link">
+                <div className="new-project-ind">Create a new Project</div>
             </Link>
         );
     }
