@@ -2,6 +2,7 @@
   text-align: center;
   display: grid;
   grid-template-columns: 70px auto;
+  grid-template-rows: 30px calc(100vh - 60px) 30px;
 }
 
 .App > .header {
