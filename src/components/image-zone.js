@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
+import { Document, Page } from "react-pdf";
 
 import { loadFile } from "../actions";
 
@@ -17,17 +18,29 @@ export function ImageZone(props) {
         fileReader.readAsDataURL(file);
     }
 
-    return (
-        <input type="file" onChange={(e) => loadFile(e)} />
-    );
+    if (props.file === null) {
+        return (
+            <input type="file" onChange={(e) => loadFile(e)} />
+        );
+    } else {
+        return (
+            <div>
+                <Document file={props.file}>
+                    <Page pageNumber={props.pageNumber} />
+                </Document>
+            </div>
+        );
+    }
 }
 
 ImageZone.propTypes = {
-    file: PropTypes.string
+    file: PropTypes.string,
+    pageNumber: PropTypes.number
 };
 
 const mapStateToProps = state => ({
-    file: state.file
+    file: state.file,
+    pageNumber: 1
 });
 
 const mapDispatchToProps = dispatch => ({
