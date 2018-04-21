@@ -1,7 +1,8 @@
 import { LOAD_FILE } from "./actions";
 
 const initialState = {
-    file: null
+    file: null, // Remove when converted to projects list
+    projects: []
 }
 
 export const reducer = (state = initialState, action) => {
