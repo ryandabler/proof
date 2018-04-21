@@ -4,3 +4,6 @@
   grid-template-columns: 70px auto;
 }
 
+.App > .header {
+  grid-column: 1 / -1;
+}
