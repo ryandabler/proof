@@ -14,6 +14,7 @@ function openDB(dbName, version) {
         const db = event.target.result;
 
         db.createObjectStore("projects", {keyPath: "id"});
+        db.createObjectStore("project-files", {keyPath: "project"});
         db.createObjectStore("pages", {keyPath: "id"});
     }
 
