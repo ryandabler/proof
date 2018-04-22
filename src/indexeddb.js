@@ -13,12 +13,8 @@ function openDB(dbName, version) {
     open.onupgradeneeded = (event) => {
         const db = event.target.result;
 
-        const objectStoreProjects = db.createObjectStore("projects", {keyPath: "id"});
-        objectStoreProjects.createIndex("file", "file", { unique: false });
-        objectStoreProjects.createIndex("name", "name", { unique: false });
-        objectStoreProjects.createIndex("remote", "remote", { unique: false });
-        
-        const objectStorePages = db.createObjectStore("pages", {keyPath: "id"});
+        db.createObjectStore("projects", {keyPath: "id"});
+        db.createObjectStore("pages", {keyPath: "id"});
     }
 
     return open;
