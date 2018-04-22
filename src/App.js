@@ -8,6 +8,8 @@ import Header from "./components/header";
 import NewProjectForm from "./components/new-project-form";
 
 import { getAllFromDB } from "./indexeddb";
+import { loadData } from "./actions";
+
 import './App.css';
 
 class App extends Component {
@@ -41,7 +43,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-
+	loadData: (data) => {
+		dispatch(loadData(data));
+	}
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
