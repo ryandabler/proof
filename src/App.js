@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { connect } from "react-redux";
 
 import Proofer from "./components/proofer";
 import Sidebar from "./components/sidebar";
@@ -25,4 +26,12 @@ class App extends Component {
 	}
 }
 
-export default App;
+const mapStateToProps = state => ({
+	
+});
+
+const mapDispatchToProps = dispatch => ({
+
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
