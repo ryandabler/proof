@@ -73,3 +73,17 @@ export function updateRecordInDB(obj, objectStore) {
         }
     }
 }
+
+export function deleteFromDB(key, objectStore) {
+    const open = openDB(DB_NAME, DB_VERSION);
+    open.onsuccess = () => {
+        const db = open.result;
+        const transaction = db.transaction(objectStore, "readwrite");
+        const store = transaction.objectStore(objectStore);
+        store.delete(key);
+
+        transaction.oncomplete = () => {
+            closeDB(db);
+        }
+    }
+}
