@@ -41,3 +41,21 @@ function putInDB(obj, objectStore) {
         }
     }
 }
+
+function getFromDB(key, objectStore) {
+    const open = openDB(DB_NAME, DB_VERSION);
+    open.onsuccess = () => {
+        const db = open.result;
+        const transaction = db.transaction(objectStore, "readwrite");
+        const store = transaction.objectStore(objectStore);
+        const get = store.get(key);
+
+        get.onsuccess = () => {
+            console.log(get.result);
+        };
+
+        transaction.oncomplete = () => {
+            closeDB(db);
+        }
+    }
+}
