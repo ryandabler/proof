@@ -28,17 +28,22 @@ function closeDB(db) {
     db.close();
 }
 
+function initiateTransaction(db, objectStore, mode) {
+    const transaction = db.transaction(objectStore, mode);
+    transaction.oncomplete = () => {
+        closeDB(db);
+    }
+
+    return transaction;
+}
+
 export function addToDB(obj, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
-        const transaction = db.transaction(objectStore, "readwrite");
+        const transaction = initiateTransaction(db, objectStore, "readwrite");
         const store = transaction.objectStore(objectStore);
         store.add(obj);
-
-        transaction.oncomplete = () => {
-            closeDB(db);
-        }
     }
 }
 
@@ -46,17 +51,13 @@ export function getFromDB(key, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
-        const transaction = db.transaction(objectStore, "readwrite");
+        const transaction = initiateTransaction(db, objectStore, "readwrite");
         const store = transaction.objectStore(objectStore);
         const get = store.get(key);
 
         get.onsuccess = () => {
             console.log(get.result);
         };
-
-        transaction.oncomplete = () => {
-            closeDB(db);
-        }
     }
 }
 
@@ -64,13 +65,9 @@ export function updateRecordInDB(obj, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
-        const transaction = db.transaction(objectStore, "readwrite");
+        const transaction = initiateTransaction(db, objectStore, "readwrite");
         const store = transaction.objectStore(objectStore);
         store.put(obj);
-
-        transaction.oncomplete = () => {
-            closeDB(db);
-        }
     }
 }
 
@@ -78,12 +75,8 @@ export function deleteFromDB(key, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
-        const transaction = db.transaction(objectStore, "readwrite");
+        const transaction = initiateTransaction(db, objectStore, "readwrite");
         const store = transaction.objectStore(objectStore);
         store.delete(key);
-
-        transaction.oncomplete = () => {
-            closeDB(db);
-        }
     }
 }
