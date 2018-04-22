@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
 
 import Proofer from "./components/proofer";
 import Sidebar from "./components/sidebar";
@@ -37,6 +38,10 @@ class App extends Component {
 		);
 	}
 }
+
+App.propTypes = {
+	loadData: PropTypes.func
+};
 
 const mapStateToProps = state => ({
 	
