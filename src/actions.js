@@ -3,3 +3,9 @@ export const loadFile = dataURL => ({
     type: LOAD_FILE,
     dataURL
 });
+
+export const LOAD_DATA = "LOAD_DATA";
+export const loadData = data => ({
+    type: LOAD_DATA,
+    data
+});
