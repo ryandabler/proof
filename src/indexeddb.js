@@ -33,8 +33,8 @@ function putInDB(obj, objectStore) {
     open.onsuccess = () => {
         const db = open.result;
         const transaction = db.transaction(objectStore, "readwrite");
-        const objStore = transaction.objectStore(objectStore);
-        objStore.put(obj);
+        const store = transaction.objectStore(objectStore);
+        store.put(obj);
 
         transaction.oncomplete = () => {
             closeDB(db);
