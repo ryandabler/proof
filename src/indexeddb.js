@@ -59,3 +59,17 @@ export function getFromDB(key, objectStore) {
         }
     }
 }
+
+export function updateRecordInDB(obj, objectStore) {
+    const open = openDB(DB_NAME, DB_VERSION);
+    open.onsuccess = () => {
+        const db = open.result;
+        const transaction = db.transaction(objectStore, "readwrite");
+        const store = transaction.objectStore(objectStore);
+        store.put(obj);
+
+        transaction.oncomplete = () => {
+            closeDB(db);
+        }
+    }
+}
