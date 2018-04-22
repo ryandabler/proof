@@ -28,13 +28,13 @@ function closeDB(db) {
     db.close();
 }
 
-export function putInDB(obj, objectStore) {
+export function addToDB(obj, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
         const transaction = db.transaction(objectStore, "readwrite");
         const store = transaction.objectStore(objectStore);
-        store.put(obj);
+        store.add(obj);
 
         transaction.oncomplete = () => {
             closeDB(db);
