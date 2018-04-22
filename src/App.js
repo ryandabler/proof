@@ -7,12 +7,17 @@ import Sidebar from "./components/sidebar";
 import Header from "./components/header";
 import NewProjectForm from "./components/new-project-form";
 
+import { getAllFromDB } from "./indexeddb";
 import './App.css';
 
 class App extends Component {
 	constructor(props) {
 		super();
 		this.props = props;
+	}
+
+	componentDidMount() {
+		getAllFromDB("projects", this.props.loadData);
 	}
 
 	render() {
