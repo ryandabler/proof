@@ -28,7 +28,7 @@ function closeDB(db) {
     db.close();
 }
 
-function putInDB(obj, objectStore) {
+export function putInDB(obj, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
@@ -42,7 +42,7 @@ function putInDB(obj, objectStore) {
     }
 }
 
-function getFromDB(key, objectStore) {
+export function getFromDB(key, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
