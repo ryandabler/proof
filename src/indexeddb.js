@@ -44,7 +44,7 @@ export function addToDB(obj, objectStore) {
     }
 }
 
-export function getFromDB(key, objectStore) {
+export function getFromDB(key, objectStore, callbackFn) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
@@ -53,12 +53,12 @@ export function getFromDB(key, objectStore) {
         const get = store.get(key);
 
         get.onsuccess = () => {
-            console.log(get.result);
+            callbackFn(get.result);
         };
     }
 }
 
-export function getAllFromDB(objectStore) {
+export function getAllFromDB(objectStore, callbackFn) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
         const db = open.result;
@@ -67,7 +67,7 @@ export function getAllFromDB(objectStore) {
         const get = store.getAll();
 
         get.onsuccess = () => {
-            console.log(get.result);
+            callbackFn(get.result);
         };
     }
 }
