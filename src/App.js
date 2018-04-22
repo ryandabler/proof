@@ -10,6 +10,11 @@ import NewProjectForm from "./components/new-project-form";
 import './App.css';
 
 class App extends Component {
+	constructor(props) {
+		super();
+		this.props = props;
+	}
+
 	render() {
 		return (
 			<Router>
