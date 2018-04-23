@@ -1,0 +1,11 @@
+.project-overview {
+    width: 50%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.project-overview:hover {
+    box-shadow: 1px 1px 6px 1px;
+}
