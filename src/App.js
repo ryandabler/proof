@@ -7,6 +7,7 @@ import Proofer from "./components/proofer";
 import Sidebar from "./components/sidebar";
 import Header from "./components/header";
 import NewProjectForm from "./components/new-project-form";
+import LandingPage from "./components/landing-page";
 
 import { getAllFromDB } from "./indexeddb";
 import { loadProjects } from "./actions";
@@ -30,8 +31,9 @@ class App extends Component {
 					<Header />
 					<Sidebar />
 					<Switch>
-						<Route exact path="/" component={Proofer} />
+						<Route exact path="/" component={LandingPage} />
 						<Route exact path="/new" component={NewProjectForm} />
+						<Route exact path="/projects/:id" component={Proofer} />
 					</Switch>
 				</div>
 			</Router>
