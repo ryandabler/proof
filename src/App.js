@@ -9,7 +9,7 @@ import Header from "./components/header";
 import NewProjectForm from "./components/new-project-form";
 
 import { getAllFromDB } from "./indexeddb";
-import { loadData } from "./actions";
+import { loadProjects } from "./actions";
 
 import './App.css';
 
@@ -49,7 +49,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	loadData: (data) => {
-		dispatch(loadData(data));
+		dispatch(loadProjects(data));
 	}
 });
 

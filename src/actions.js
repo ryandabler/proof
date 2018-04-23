@@ -4,9 +4,9 @@ export const loadFile = dataURL => ({
     dataURL
 });
 
-export const LOAD_DATA = "LOAD_DATA";
-export const loadData = data => ({
-    type: LOAD_DATA,
+export const LOAD_PROJECTS = "LOAD_PROJECTS";
+export const loadProjects = data => ({
+    type: LOAD_PROJECTS,
     data
 });
 
