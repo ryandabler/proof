@@ -25,6 +25,8 @@ export default function NewProjectForm(props) {
 
             fileReader.readAsDataURL(file);
         }
+
+        props.history.push("./");
     }
 
     return (
