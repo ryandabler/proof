@@ -29,8 +29,8 @@ export default function NewProjectForm(props) {
 
     return (
         <form onSubmit={submitHandler} className="new-project-form">
-            <label htmlFor="project-title">Name</label>
-            <input type="text" id="project-title" name="title" required />
+            <label htmlFor="project-name">Name</label>
+            <input type="text" id="project-name" name="name" required />
             <label htmlFor="project-remote-index">Remote index</label>
             <input type="text" id="project-remote-index" name="remote" />
             <label htmlFor="project-file">File (PDF)</label>
