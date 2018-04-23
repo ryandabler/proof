@@ -47,7 +47,8 @@ export function NewProjectForm(props) {
 }
 
 NewProjectForm.propTypes = {
-    history: PropTypes.object
+    history: PropTypes.object,
+    dispatch: PropTypes.func
 }
 
 export default connect()(NewProjectForm);
