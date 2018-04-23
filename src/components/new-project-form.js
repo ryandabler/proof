@@ -1,4 +1,5 @@
 import React from "react";
+import { PropTypes } from "prop-types";
 
 import { extractFormValues } from "../utilities";
 import { addToDB } from "../indexeddb";
@@ -11,7 +12,7 @@ export default function NewProjectForm(props) {
         const formValues = extractFormValues(e.target.elements);
         const { name, remote, file } = formValues;
         addToDB({ name, remote }, "projects");
-        
+
         if (file !== "") {
             const input = e.target.elements.file;
             const file = input.files[0];
@@ -40,4 +41,8 @@ export default function NewProjectForm(props) {
             <input type="submit" value="Save" />
         </form>
     );
+}
+
+NewProjectForm.propTypes = {
+    history: PropTypes.object
 }
