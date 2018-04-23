@@ -1,12 +1,13 @@
 import React from "react";
 import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
 
 import { extractFormValues } from "../utilities";
 import { addToDB } from "../indexeddb";
 
 import "./new-project-form.css";
 
-export default function NewProjectForm(props) {
+export function NewProjectForm(props) {
     function submitHandler(e) {
         e.preventDefault();
         const formValues = extractFormValues(e.target.elements);
@@ -45,4 +46,7 @@ export default function NewProjectForm(props) {
 
 NewProjectForm.propTypes = {
     history: PropTypes.object
+}   history: PropTypes.object
 }
+
+export default connect()(NewProjectForm);
