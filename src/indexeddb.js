@@ -13,7 +13,7 @@ function openDB(dbName, version) {
     open.onupgradeneeded = (event) => {
         const db = event.target.result;
 
-        db.createObjectStore("projects", {keyPath: "id"});
+        db.createObjectStore("projects", {keyPath: "name"});
         db.createObjectStore("project-files", {keyPath: "project"});
         db.createObjectStore("pages", {keyPath: "id"});
     }
