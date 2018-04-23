@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 
 import { extractFormValues } from "../utilities";
 import { addToDB } from "../indexeddb";
+import { createProject } from "../actions";
 
 import "./new-project-form.css";
 
@@ -13,6 +14,7 @@ export function NewProjectForm(props) {
         const formValues = extractFormValues(e.target.elements);
         const { name, remote, file } = formValues;
         addToDB({ name, remote }, "projects");
+        props.dispatch(createProject({ name, remote }));
 
         if (file !== "") {
             const input = e.target.elements.file;
