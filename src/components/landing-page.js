@@ -3,20 +3,22 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 
+import ProjectOverview from "./project-overview";
+
 import "./landing-page.css";
 
 export function LandingPage(props) {
-    if (props.projects.length > 0) {
-        return (
-            <div>PROJECTS</div>
-        );
-    } else {
-        return (
+    const projectTiles = props.projects.map(project => 
+        <ProjectOverview key={project.name} name={project.name} pctComplete={0} />
+    );
+    return (
+        <div className="landing-page">
+            {projectTiles}
             <Link to={"/new"} className="plain-link">
-                <div className="new-project-ind">Create a new Project</div>
+                <div className="project-overview">Create a new Project</div>
             </Link>
-        );
-    }
+        </div>
+    );
 }
 
 LandingPage.propTypes = {
