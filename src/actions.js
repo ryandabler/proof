@@ -8,4 +8,12 @@ export const LOAD_DATA = "LOAD_DATA";
 export const loadData = data => ({
     type: LOAD_DATA,
     data
+}); type: LOAD_DATA,
+    data
+});
+
+export const CREATE_PROJECT = "CREATE_PROJECT";
+export const createProject = data => ({
+    type: CREATE_PROJECT,
+    data
 });
