@@ -10,7 +10,7 @@ export default function NewProjectForm(props) {
         e.preventDefault();
         const formValues = extractFormValues(e.target.elements);
         const { name, remote, file } = formValues;
-        addToDB({ name, remote });
+        addToDB({ name, remote }, "projects");
         
         if (file !== "") {
             const input = e.target.elements.file;
@@ -20,7 +20,7 @@ export default function NewProjectForm(props) {
 
             fileReader.onload = (loadEvent) => {
                 base64 = loadEvent.target.result;
-                addToDB({ project: name, file: base64 });
+                addToDB({ project: name, file: base64 }, "project-files");
             }
 
             fileReader.readAsDataURL(file);
