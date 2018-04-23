@@ -6,7 +6,8 @@ import {
 
 const initialState = {
     file: null, // Remove when converted to projects list
-    projects: []
+    projects: [],
+    currentProject: null
 }
 
 export const reducer = (state = initialState, action) => {
