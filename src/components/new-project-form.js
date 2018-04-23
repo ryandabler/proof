@@ -1,6 +1,7 @@
 import React from "react";
 
 import { extractFormValues } from "../utilities";
+import { addToDB } from "../indexeddb";
 
 import "./new-project-form.css";
 
@@ -8,8 +9,10 @@ export default function NewProjectForm(props) {
     function submitHandler(e) {
         e.preventDefault();
         const formValues = extractFormValues(e.target.elements);
+        const { name, remote, file } = formValues;
+        addToDB({ name, remote });
         
-        if (formValues.file !== "") {
+        if (file !== "") {
             const input = e.target.elements.file;
             const file = input.files[0];
             const fileReader = new FileReader();
@@ -17,8 +20,9 @@ export default function NewProjectForm(props) {
 
             fileReader.onload = (loadEvent) => {
                 base64 = loadEvent.target.result;
+                addToDB({ project: name, file: base64 });
             }
-            
+
             fileReader.readAsDataURL(file);
         }
     }
