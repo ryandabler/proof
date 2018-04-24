@@ -6,8 +6,8 @@ import "./project-overview.css";
 export default function ProjectOverview(props) {
     return (
         <div className="project-overview">
-            <span>{props.name}</span>
-            <span>{props.pctComplete}</span>
+            <span className="project-name">{props.name}</span>
+            <span className="pct">{props.pctComplete}%</span>
         </div>
     );
 }
