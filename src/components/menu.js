@@ -5,8 +5,12 @@ import "./menu.css";
 export default function Menu(props) {
     return (
         <div className="sidebar">
-            <button>New</button>
+            <button>File</button>
             <button>View</button>
+            <button>Edit</button>
+            <button>Settings</button>
+            <button>Project</button>
+            <button>About</button>
         </div>
     );
 }
