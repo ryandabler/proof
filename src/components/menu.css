@@ -3,3 +3,8 @@
     justify-content: flex-start;
     align-items: center;
 }
+
+.menu .menu-item {
+    background-color: transparent;
+    border: none;
+}

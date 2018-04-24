@@ -5,12 +5,12 @@ import "./menu.css";
 export default function Menu(props) {
     return (
         <div className="menu">
-            <button>File</button>
-            <button>View</button>
-            <button>Edit</button>
-            <button>Settings</button>
-            <button>Project</button>
-            <button>About</button>
+            <button className="menu-item">File</button>
+            <button className="menu-item">View</button>
+            <button className="menu-item">Edit</button>
+            <button className="menu-item">Settings</button>
+            <button className="menu-item">Project</button>
+            <button className="menu-item">About</button>
         </div>
     );
 }
