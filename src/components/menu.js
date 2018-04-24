@@ -4,7 +4,7 @@ import "./menu.css";
 
 export default function Menu(props) {
     return (
-        <div className="sidebar">
+        <div className="menu">
             <button>File</button>
             <button>View</button>
             <button>Edit</button>
