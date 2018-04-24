@@ -11,6 +11,7 @@ export function LandingPage(props) {
     const projectTiles = props.projects.map(project => 
         <ProjectOverview key={project.name} name={project.name} pctComplete={0} />
     );
+
     return (
         <div className="landing-page">
             {projectTiles}
