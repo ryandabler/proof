@@ -14,8 +14,8 @@ export function LandingPage(props) {
     return (
         <div className="landing-page">
             {projectTiles}
-            <Link to={"/new"} className="plain-link project-overview">
-                Create a new Project
+            <Link to={"/new"} className="plain-link project-overview" id="new-project">
+                New Project
             </Link>
         </div>
     );

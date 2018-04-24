@@ -3,3 +3,8 @@
     flex-direction: column;
     align-items: center;
 }
+
+#new-project {
+    font-size: 25px;
+    height: 80px;
+}
