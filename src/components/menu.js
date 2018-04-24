@@ -1,8 +1,8 @@
 import React from "react";
 
-import "./sidebar.css";
+import "./menu.css";
 
-export default function Sidebar(props) {
+export default function Menu(props) {
     return (
         <div className="sidebar">
             <button>New</button>
