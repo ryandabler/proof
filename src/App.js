@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
 import Proofer from "./components/proofer";
-import Sidebar from "./components/sidebar";
+import Menu from "./components/menu";
 import Header from "./components/header";
 import NewProjectForm from "./components/new-project-form";
 import LandingPage from "./components/landing-page";
@@ -29,7 +29,7 @@ class App extends Component {
 			<Router>
 				<div className="App">
 					<Header />
-					<Sidebar />
+					<Menu />
 					<Switch>
 						<Route exact path="/" component={LandingPage} />
 						<Route exact path="/new" component={NewProjectForm} />
