@@ -10,4 +10,5 @@
     border: none;
     padding: 4px 8px;
     color: var(--clr-fg-main);
+    font-size: 15px;
 }
