@@ -18,5 +18,5 @@ body {
 
 .plain-link {
 	text-decoration: none;
-	color: #000000;
+	color: var(--clr-fg-main);
 }
