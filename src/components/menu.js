@@ -2,7 +2,7 @@ import React from "react";
 
 import "./menu.css";
 
-export default function Menu(props) {
+export default function Menu() {
     return (
         <div className="menu">
             <button className="menu-item">File</button>
