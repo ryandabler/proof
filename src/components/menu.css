@@ -2,6 +2,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
+}
+
+.menu > :first-child {
     margin-left: calc(var(--left-padding) - 8px);
 }
 
