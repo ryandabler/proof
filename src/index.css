@@ -1,6 +1,7 @@
 :root {
 	--clr-bg-main: #07393C;
 	--clr-fg-main: #F0EDEE;
+	--left-padding: 20px;
 }
 
 * {
