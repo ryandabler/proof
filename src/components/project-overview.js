@@ -4,17 +4,24 @@ import { PropTypes } from "prop-types";
 
 import "./project-overview.css";
 
-export function ProjectOverview(props) {
-    return (
-        <div className="project-overview">
-            <span>Name</span>
-            <span>{props.project.name}</span>
-            <span>Remote</span>
-            <span>{props.project.remote}</span>
-            <span>Pagelist</span>
-            <span></span>
-        </div>
-    );
+export class ProjectOverview extends React.Component {
+    constructor(props) {
+        super();
+        this.props = props;
+    }
+
+    render() {
+        return (
+            <div className="project-overview">
+                <span>Name</span>
+                <span>{this.props.project.name}</span>
+                <span>Remote</span>
+                <span>{this.props.project.remote}</span>
+                <span>Pagelist</span>
+                <span></span>
+            </div>
+        );
+    }
 }
 
 ProjectOverview.propTypes = {
