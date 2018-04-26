@@ -1,0 +1,8 @@
+.project-overview {
+    width: 30%;
+    margin: 0 auto;
+    text-align: left;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-auto-rows: auto;
+}
