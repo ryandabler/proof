@@ -1,0 +1,17 @@
+.new-project-form {
+    width: 30%;
+    margin: 0 auto;
+}
+
+.new-project-form > * {
+    display: block;
+    width: 100%;
+}
+
+.new-project-form input:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.new-project-form > label {
+    text-align: left;
+}
