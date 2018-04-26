@@ -8,6 +8,7 @@ import Menu from "./components/menu";
 import Header from "./components/header";
 import NewProjectForm from "./components/new-project-form";
 import LandingPage from "./components/landing-page";
+import ProjectOverview from "./components/project-overview";
 
 import { getAllFromDB } from "./indexeddb";
 import { loadProjects } from "./actions";
@@ -33,7 +34,8 @@ class App extends Component {
 					<Switch>
 						<Route exact path="/" component={LandingPage} />
 						<Route exact path="/new" component={NewProjectForm} />
-						<Route exact path="/projects/:id" component={Proofer} />
+						<Route exact path="/projects/:id" component={ProjectOverview} />
+						<Route exact path="/projects/:id/:page" component={Proofer} />
 					</Switch>
 				</div>
 			</Router>
