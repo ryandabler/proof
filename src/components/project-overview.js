@@ -2,6 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
+import { getAllFromDB } from "../indexeddb";
+import { loadProjectPages } from "../actions";
+
 import "./project-overview.css";
 
 export class ProjectOverview extends React.Component {
@@ -10,6 +13,10 @@ export class ProjectOverview extends React.Component {
         this.props = props;
     }
 
+    componentDidMount() {
+		getAllFromDB("pages", this.props.loadPagesOfProject(this.props.project));
+    }
+    
     render() {
         return (
             <div className="project-overview">
@@ -25,13 +32,25 @@ export class ProjectOverview extends React.Component {
 }
 
 ProjectOverview.propTypes = {
-    project: PropTypes.object
+    project: PropTypes.object,
+    loadPagesOfProject: PropTypes.func
 };
 
 const mapStateToProps = (state, props) => ({
     project: state.projects.find(project =>
         project.name === props.match.params.id
-    )
+    ),
+    pages: state.pages
 });
 
-export default connect(mapStateToProps)(ProjectOverview);
+const mapDispatchToProps = dispatch => ({
+    loadPagesOfProject: (projectId) => data => {
+        const filtered = data.filter(item =>
+            item.id.split("__").slice(0, -1) === projectId
+        );
+
+        dispatch(loadProjectPages(filtered));
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProjectOverview);
