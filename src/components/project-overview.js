@@ -13,7 +13,7 @@ ProjectOverview.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-    project: state.projects.filter(project =>
+    project: state.projects.find(project =>
         project.name === props.match.params.id
     )
 });
