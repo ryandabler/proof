@@ -1,4 +1,4 @@
-.project-overview {
+.project-tile {
     width: 50%;
     padding: 15px 20px;
     display: flex;
@@ -6,15 +6,15 @@
     align-items: center;
 }
 
-.project-overview:hover {
+.project-tile:hover {
     box-shadow: 1px 1px 6px 1px;
 }
 
-.project-overview .project-name {
+.project-tile .project-name {
     font-size: 25px;
 }
 
-.project-overview .pct {
+.project-tile .pct {
     border: 1px solid var(--clr-fg-main);
     border-radius: 50%;
     width: 50px;
