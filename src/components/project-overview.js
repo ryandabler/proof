@@ -5,6 +5,10 @@ import "./project-overview.css";
 
 export function ProjectOverview(props) {
 
-}
+const mapStateToProps = (state, props) => ({
+    project: state.projects.filter(project =>
+        project.name === props.match.params.id
+    )
+});
 
-export default connect()(ProjectOverview);
+export default connect(mapStateToProps)(ProjectOverview);
