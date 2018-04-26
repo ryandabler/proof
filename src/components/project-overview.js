@@ -1,7 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 
 import "./project-overview.css";
 
-export default function ProjectOverview(props) {
+export function ProjectOverview(props) {
 
 }
+
+export default connect()(ProjectOverview);
