@@ -2,8 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 
-import { getAllFromDB } from "../indexeddb";
-import { loadProjectPages } from "../actions";
+import ImageZone from "./image-zone";
+import { getAllFromDB, getFromDB } from "../indexeddb";
+import { loadProjectPages, loadProjectFile } from "../actions";
 
 import "./project-overview.css";
 
@@ -14,7 +15,8 @@ export class ProjectOverview extends React.Component {
     }
 
     componentDidMount() {
-		getAllFromDB("pages", this.props.loadPagesOfProject(this.props.project));
+        getAllFromDB("pages", this.props.loadPagesOfProject(this.props.project.name));
+        getFromDB(this.props.project.name, "project-files", this.props.loadProjectFile);
     }
     
     render() {
@@ -25,7 +27,7 @@ export class ProjectOverview extends React.Component {
                 <span>Remote</span>
                 <span>{this.props.project.remote}</span>
                 <span>Pagelist</span>
-                <span></span>
+                <ImageZone file={this.props.file} pageIndex={0} />
             </div>
         );
     }
@@ -40,7 +42,8 @@ const mapStateToProps = (state, props) => ({
     project: state.projects.find(project =>
         project.name === props.match.params.id
     ),
-    pages: state.pages
+    pages: state.pages,
+    file: state.file
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -50,6 +53,10 @@ const mapDispatchToProps = dispatch => ({
         );
 
         dispatch(loadProjectPages(filtered));
+    },
+
+    loadProjectFile: data => {
+        dispatch(loadProjectFile(data.file));
     }
 });
 
