@@ -35,7 +35,9 @@ export class ProjectOverview extends React.Component {
 
 ProjectOverview.propTypes = {
     project: PropTypes.object,
-    loadPagesOfProject: PropTypes.func
+    loadPagesOfProject: PropTypes.func,
+    loadProjectFile: PropTypes.func,
+    file: PropTypes.string
 };
 
 const mapStateToProps = (state, props) => ({
