@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 
 import ImageZone from "./image-zone";
 import { getAllFromDB, getFromDB } from "../indexeddb";
-import { loadProjectPages, loadProjectFile } from "../actions";
+import { loadProjectPages, loadProjectFile, setPageCount } from "../actions";
 
 import "./project-overview.css";
 
@@ -37,7 +37,8 @@ ProjectOverview.propTypes = {
     project: PropTypes.object,
     loadPagesOfProject: PropTypes.func,
     loadProjectFile: PropTypes.func,
-    file: PropTypes.string
+    file: PropTypes.string,
+    setPageCount: PropTypes.func
 };
 
 const mapStateToProps = (state, props) => ({
@@ -45,7 +46,8 @@ const mapStateToProps = (state, props) => ({
         project.name === props.match.params.id
     ),
     pages: state.pages,
-    file: state.file
+    file: state.file,
+    pageCount: state.pageCount
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -59,6 +61,10 @@ const mapDispatchToProps = dispatch => ({
 
     loadProjectFile: data => {
         dispatch(loadProjectFile(data.file));
+    },
+
+    setPageCount: pdfDocProxy => {
+        dispatch(setPageCount(pdfDocProxy.numPages));
     }
 });
 
