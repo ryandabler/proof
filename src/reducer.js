@@ -2,14 +2,16 @@ import {
     LOAD_PROJECT_FILE,
     LOAD_PROJECTS,
     CREATE_PROJECT,
-    LOAD_PROJECT_PAGES
+    LOAD_PROJECT_PAGES,
+    SET_PAGE_COUNT
 } from "./actions";
 
 const initialState = {
     file: null, // Remove when converted to projects list
     projects: [],
     currentProject: null,
-    pages: []
+    pages: [],
+    pageCount: 0
 }
 
 export const reducer = (state = initialState, action) => {
@@ -22,6 +24,8 @@ export const reducer = (state = initialState, action) => {
         return Object.assign({}, state, { projects: [...state.projects, { name, remote }] });
     } else if (action.type === LOAD_PROJECT_PAGES) {
         return Object.assign({}, state, { pages: action.data });
+    } else if (action.type === SET_PAGE_COUNT) {
+        return Object.assign({}, state, { pageCount: action.pageCount });
     }
 
     return state;

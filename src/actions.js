@@ -21,3 +21,9 @@ export const loadProjectPages = data => ({
     type: LOAD_PROJECT_PAGES,
     data
 });
+
+export const SET_PAGE_COUNT = "SET_PAGE_COUNT";
+export const setPageCount = pageCount => ({
+    type: SET_PAGE_COUNT,
+    pageCount
+});
