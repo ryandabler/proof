@@ -6,7 +6,7 @@ import "./image-zone.css";
 
 export default function ImageZone(props) {
     return (
-        <Document file={props.file}>
+        <Document file={props.file} onLoadSuccess={props.success}>
             <Page pageIndex={props.pageIndex} />
         </Document>
     );
@@ -14,5 +14,6 @@ export default function ImageZone(props) {
 
 ImageZone.propTypes = {
     file: PropTypes.string,
-    pageIndex: PropTypes.number
+    pageIndex: PropTypes.number,
+    success: PropTypes.func
 };
