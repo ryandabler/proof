@@ -1,32 +1,19 @@
 import React from "react";
-import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { Document, Page } from "react-pdf";
 
-import { loadFile } from "../actions";
-
 import "./image-zone.css";
 
-export function ImageZone(props) {
-    function loadFile(e) {
-        const file = e.target.files[0];
-        const fileReader = new FileReader();
-        fileReader.onload = (loadEvent) => {
-          const base64 = loadEvent.target.result;
-          props.loadFile(base64);
-        }
-        fileReader.readAsDataURL(file);
-    }
-
+export default function ImageZone(props) {
     if (props.file === null) {
         return (
-            <input type="file" onChange={(e) => loadFile(e)} />
+            <input type="file" />
         );
     } else {
         return (
             <div>
                 <Document file={props.file}>
-                    <Page pageNumber={props.pageNumber} />
+                    <Page pageIndex={props.pageIndex} />
                 </Document>
             </div>
         );
@@ -35,16 +22,5 @@ export function ImageZone(props) {
 
 ImageZone.propTypes = {
     file: PropTypes.string,
-    pageNumber: PropTypes.number
+    pageIndex: PropTypes.number
 };
-
-const mapStateToProps = state => ({
-    file: state.file,
-    pageNumber: 1
-});
-
-const mapDispatchToProps = dispatch => ({
-    loadFile: dataURL => dispatch(loadFile(dataURL))
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(ImageZone);
