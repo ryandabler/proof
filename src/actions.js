@@ -1,5 +1,5 @@
 export const LOAD_PROJECT_FILE = "LOAD_PROJECT_FILE";
-export const loadFile = dataURL => ({
+export const loadProjectFile = dataURL => ({
     type: LOAD_PROJECT_FILE,
     dataURL
 });
