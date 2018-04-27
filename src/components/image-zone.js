@@ -11,11 +11,9 @@ export default function ImageZone(props) {
         );
     } else {
         return (
-            <div>
-                <Document file={props.file}>
-                    <Page pageIndex={props.pageIndex} />
-                </Document>
-            </div>
+            <Document file={props.file}>
+                <Page pageIndex={props.pageIndex} />
+            </Document>
         );
     }
 }
