@@ -44,7 +44,7 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    loadPagesOfProject: (projectId) => data => {
+    loadPagesOfProject: projectId => data => {
         const filtered = data.filter(item =>
             item.id.split("__").slice(0, -1) === projectId
         );
