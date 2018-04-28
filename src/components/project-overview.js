@@ -56,7 +56,10 @@ ProjectOverview.propTypes = {
     loadPagesOfProject: PropTypes.func,
     loadProjectFile: PropTypes.func,
     file: PropTypes.string,
-    setPageCount: PropTypes.func
+    setPageCount: PropTypes.func,
+    pageCount: PropTypes.number,
+    pages: PropTypes.arrayOf(PropTypes.object),
+    match: PropTypes.object
 };
 
 const mapStateToProps = (state, props) => ({
