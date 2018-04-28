@@ -20,3 +20,15 @@ body {
 	text-decoration: none;
 	color: var(--clr-fg-main);
 }
+
+.na-proofread {
+	background-color: lightgray;
+}
+
+.not-proofread {
+	background-color: red;
+}
+
+.proofread {
+	background-color: lightgreen;
+}
