@@ -23,8 +23,11 @@ export class ProjectOverview extends React.Component {
     generatePageList() {
         const pageList = [];
         for (let n = 0; n < this.props.pageCount; n++) {
+            const page = this.props.pages.find(page => page.number === n);
+            const status = page ? page.status : "not-proofread";
+
             pageList.push(
-                <Link key={n} to={`${this.props.match.url}/${n}`} className="plain-link">
+                <Link key={n} to={`${this.props.match.url}/${n}`} className={`plain-link page-list-item ${status}`}>
                     {n}
                 </Link>
             );
