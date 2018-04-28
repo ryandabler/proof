@@ -1,6 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
+import { Link } from "react-router-dom";
 
 import ImageZone from "./image-zone";
 import { getAllFromDB, getFromDB } from "../indexeddb";
@@ -19,6 +20,19 @@ export class ProjectOverview extends React.Component {
         getFromDB(this.props.project.name, "project-files", this.props.loadProjectFile);
     }
     
+    generatePageList() {
+        const pageList = [];
+        for (let n = 0; n < this.props.pageCount; n++) {
+            pageList.push(
+                <Link key={n} to={`${this.props.match.url}/${n}`} className="plain-link">
+                    {n}
+                </Link>
+            );
+        }
+        
+        return pageList;
+    }
+
     render() {
         return (
             <div className="project-overview">
@@ -27,7 +41,7 @@ export class ProjectOverview extends React.Component {
                 <span>Remote</span>
                 <span>{this.props.project.remote}</span>
                 <span>Pagelist</span>
-                <span></span>
+                <span>{this.generatePageList()}</span>
                 <ImageZone file={this.props.file} pageIndex={0} success={this.props.setPageCount} />
             </div>
         );
