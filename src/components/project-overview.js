@@ -44,7 +44,7 @@ export class ProjectOverview extends React.Component {
                 <span>Remote</span>
                 <span>{this.props.project.remote}</span>
                 <span>Pagelist</span>
-                <span>{this.generatePageList()}</span>
+                <span className="page-list">{this.generatePageList()}</span>
                 <ImageZone file={this.props.file} pageIndex={0} success={this.props.setPageCount} />
             </div>
         );
