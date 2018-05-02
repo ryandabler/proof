@@ -17,7 +17,9 @@ export function Proofer(props) {
 }
 
 Proofer.propTypes = {
-    projects: PropTypes.arrayOf(PropTypes.object)
+    project: PropTypes.object,
+    pageNum: PropTypes.number,
+    file: PropTypes.string
 };
 
 const mapStateToProps = (state, props) => ({
