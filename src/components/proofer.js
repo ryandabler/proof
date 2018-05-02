@@ -24,7 +24,7 @@ const mapStateToProps = (state, props) => ({
     project: state.projects.find(project =>
         project.name === props.match.params.id
     ),
-    page: parseInt(props.match.params.page, 10),
+    pageNum: parseInt(props.match.params.page, 10),
     file: state.file
 });
 
