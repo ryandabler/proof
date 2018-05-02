@@ -20,8 +20,12 @@ Proofer.propTypes = {
     projects: PropTypes.arrayOf(PropTypes.object)
 };
 
-const mapStateToProps = state => ({
-    projects: state.projects
+const mapStateToProps = (state, props) => ({
+    project: state.projects.find(project =>
+        project.name === props.match.params.id
+    ),
+    page: parseInt(props.match.params.page, 10),
+    file: state.file
 });
 
 export default connect(mapStateToProps)(Proofer);
