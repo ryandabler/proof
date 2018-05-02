@@ -11,7 +11,7 @@ export function Proofer(props) {
     return (
         <div className="proofer">
             <TextBox />
-            <ImageZone />
+            <ImageZone file={props.file} pageIndex={props.pageNum} />
         </div>
     );
 }
