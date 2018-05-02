@@ -15,7 +15,11 @@ function openDB(dbName, version) {
 
         db.createObjectStore("projects", {keyPath: "name"});
         db.createObjectStore("project-files", {keyPath: "project"});
-        db.createObjectStore("pages", {keyPath: ["project", "page"]});
+        const pagesStore = db.createObjectStore(
+            "pages",
+            {keyPath: ["project", "page"]
+        });
+        pagesStore.createIndex("ProjectIndex", "project");
     }
 
     return open;
