@@ -8,9 +8,13 @@ import ImageZone from "./image-zone";
 import "./proofer.css";
 
 export function Proofer(props) {
+    function inputHandler(data) {
+        console.log(data);
+    }
+
     return (
         <div className="proofer">
-            <TextBox />
+            <TextBox onInput={inputHandler} />
             <ImageZone file={props.file} pageIndex={props.pageNum} />
         </div>
     );
