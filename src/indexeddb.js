@@ -76,6 +76,21 @@ export function getAllFromDB(objectStore, callbackFn) {
     }
 }
 
+export function getFromDBViaIndex(objectStore, idxName, idxValue, callbackFn) {
+    const open = openDB(DB_NAME, DB_VERSION);
+    open.onsuccess = () => {
+        const db = open.result;
+        const transaction = initiateTransaction(db, objectStore, "readwrite");
+        const store = transaction.objectStore(objectStore);
+        const idx = store.index(idxName);
+
+        idx.getAll(idxValue);
+        idx.onsuccess = () => {
+            callbackFn(idx.result);
+        }
+    }
+}
+
 export function updateRecordInDB(obj, objectStore) {
     const open = openDB(DB_NAME, DB_VERSION);
     open.onsuccess = () => {
