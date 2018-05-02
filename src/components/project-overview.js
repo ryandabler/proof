@@ -16,9 +16,9 @@ export class ProjectOverview extends React.Component {
     }
 
     componentDidMount() {
-        getFromDB(this.props.project.name, "project-files", this.props.loadProjectFile);
         const { name } = this.props.project;
         getFromDBViaIndex("pages", "ProjectIndex", name, this.props.loadPagesOfProject);
+        getFromDB(name, "project-files", this.props.loadProjectFile);
     }
     
     generatePageList() {
