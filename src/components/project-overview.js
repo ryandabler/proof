@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import { Link } from "react-router-dom";
 
 import ImageZone from "./image-zone";
-import { getAllFromDB, getFromDB } from "../indexeddb";
+import { getFromDBViaIndex, getFromDB } from "../indexeddb";
 import { loadProjectPages, loadProjectFile, setPageCount } from "../actions";
 
 import "./project-overview.css";
@@ -16,8 +16,9 @@ export class ProjectOverview extends React.Component {
     }
 
     componentDidMount() {
-        getAllFromDB("pages", this.props.loadPagesOfProject(this.props.project.name));
         getFromDB(this.props.project.name, "project-files", this.props.loadProjectFile);
+        const { name } = this.props.project;
+        getFromDBViaIndex("pages", "ProjectIndex", name, this.props.loadPagesOfProject);
     }
     
     generatePageList() {
@@ -72,12 +73,8 @@ const mapStateToProps = (state, props) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    loadPagesOfProject: projectId => data => {
-        const filtered = data.filter(item =>
-            item.id.split("__").slice(0, -1) === projectId
-        );
-
-        dispatch(loadProjectPages(filtered));
+    loadPagesOfProject: data => {
+        dispatch(loadProjectPages(data));
     },
 
     loadProjectFile: data => {
