@@ -27,3 +27,10 @@ export const setPageCount = pageCount => ({
     type: SET_PAGE_COUNT,
     pageCount
 });
+
+export const SET_PAGE = "SET_PAGE";
+export const setPage = (pageNum, pageText) => ({
+    type: SET_PAGE,
+    pageNum,
+    pageText
+});

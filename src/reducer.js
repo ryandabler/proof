@@ -3,7 +3,8 @@ import {
     LOAD_PROJECTS,
     CREATE_PROJECT,
     LOAD_PROJECT_PAGES,
-    SET_PAGE_COUNT
+    SET_PAGE_COUNT,
+    SET_PAGE
 } from "./actions";
 
 const initialState = {
@@ -26,6 +27,16 @@ export const reducer = (state = initialState, action) => {
         return Object.assign({}, state, { pages: action.data });
     } else if (action.type === SET_PAGE_COUNT) {
         return Object.assign({}, state, { pageCount: action.pageCount });
+    } else if (action.type === SET_PAGE) {
+        const page = state.pages.find(page => page.page === action.pageNum);
+        const idx = state.pages.indexOf(page);
+        const newPage = Object.assign({}, page, { text: action.pageText });
+        
+        return Object.assign({}, state, { pages: [
+            ...state.pages.slice(0, idx),
+            newPage,
+            state.pages.slice(idx)
+        ]});
     }
 
     return state;
