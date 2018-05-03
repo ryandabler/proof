@@ -4,8 +4,9 @@ import { PropTypes } from "prop-types";
 import "./text-box.css";
 
 export default function TextBox(props) {
+    const text = props.page ? props.page.text : "";
     return (
-        <textarea className="text-box" onInput={(e) => props.onInput(e.target.value)} />
+        <textarea className="text-box" value={text} onInput={(e) => props.onInput(e.target.value)} />
     );
 }
 
