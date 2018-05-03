@@ -4,6 +4,8 @@ import { PropTypes } from "prop-types";
 
 import TextBox from "./text-box";
 import ImageZone from "./image-zone";
+import { setPage } from "../actions";
+import { updateRecordInDB } from "../indexeddb";
 
 import "./proofer.css";
 
@@ -25,6 +27,7 @@ Proofer.propTypes = {
     pageNum: PropTypes.number,
     file: PropTypes.string,
     page: PropTypes.object,
+    setPage: PropTypes.func
 };
 
 const mapStateToProps = (state, props) => ({
@@ -38,4 +41,14 @@ const mapStateToProps = (state, props) => ({
     )
 });
 
-export default connect(mapStateToProps)(Proofer);
+const mapDispatchToProps = (dispatch, props) => ({
+    setPage: text => {
+        const newPage = props.page
+            ? Object.assign({}, props.page, { text })
+            : { project: props.match.params.id, page: props.match.params.page, text };
+        updateRecordInDB(newPage, "pages");
+        dispatch(setPage(props.pageNum, text))
+    }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Proofer);
