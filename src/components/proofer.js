@@ -23,7 +23,8 @@ export function Proofer(props) {
 Proofer.propTypes = {
     project: PropTypes.object,
     pageNum: PropTypes.number,
-    file: PropTypes.string
+    file: PropTypes.string,
+    page: PropTypes.string
 };
 
 const mapStateToProps = (state, props) => ({
@@ -31,7 +32,8 @@ const mapStateToProps = (state, props) => ({
         project.name === props.match.params.id
     ),
     pageNum: parseInt(props.match.params.page, 10),
-    file: state.file
+    file: state.file,
+    page: state.pages[this.pageNum]
 });
 
 export default connect(mapStateToProps)(Proofer);
