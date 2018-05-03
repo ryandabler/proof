@@ -24,7 +24,7 @@ Proofer.propTypes = {
     project: PropTypes.object,
     pageNum: PropTypes.number,
     file: PropTypes.string,
-    page: PropTypes.string
+    page: PropTypes.object,
 };
 
 const mapStateToProps = (state, props) => ({
