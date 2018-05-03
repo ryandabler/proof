@@ -10,5 +10,6 @@ export default function TextBox(props) {
 }
 
 TextBox.propTypes = {
-    onInput: PropTypes.func
+    onInput: PropTypes.func,
+    page: PropTypes.string
 };
