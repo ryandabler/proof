@@ -14,7 +14,7 @@ export function Proofer(props) {
 
     return (
         <div className="proofer">
-            <TextBox onInput={inputHandler} />
+            <TextBox page={props.page} onInput={inputHandler} />
             <ImageZone file={props.file} pageIndex={props.pageNum} />
         </div>
     );
