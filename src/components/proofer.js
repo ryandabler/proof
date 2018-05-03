@@ -34,7 +34,7 @@ const mapStateToProps = (state, props) => ({
     pageNum: parseInt(props.match.params.page, 10),
     file: state.file,
     page: state.pages.find(page =>
-        page.page === this.pageNum
+        page.page === props.match.params.page
     )
 });
 
