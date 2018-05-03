@@ -59,7 +59,7 @@ ProjectOverview.propTypes = {
     file: PropTypes.string,
     setPageCount: PropTypes.func,
     pageCount: PropTypes.number,
-    pages: PropTypes.arrayOf(PropTypes.object),
+    pages: PropTypes.array,
     match: PropTypes.object
 };
 
