@@ -83,10 +83,10 @@ export function getFromDBViaIndex(objectStore, idxName, idxValue, callbackFn) {
         const transaction = initiateTransaction(db, objectStore, "readwrite");
         const store = transaction.objectStore(objectStore);
         const idx = store.index(idxName);
-
-        idx.getAll(idxValue);
-        idx.onsuccess = () => {
-            callbackFn(idx.result);
+        
+        const getRequest = idx.getAll(idxValue);
+        getRequest.onsuccess = () => {
+            callbackFn(getRequest.result);
         }
     }
 }
