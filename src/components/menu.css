@@ -14,8 +14,29 @@
     padding: 4px 8px;
     color: var(--clr-fg-main);
     font-size: 15px;
+    position: relative;
 }
 
-.menu .menu-item:hover {
+.menu .menu-item:hover, .menu .menu-item:focus {
     background-color: var(--clr-bg-alt);
+}
+
+.menu .menu-item .menu-dropdown {
+    display: none;
+    position: absolute;
+    background-color: var(--clr-bg-alt);
+}
+
+.menu .menu-item .menu-dropdown > * {
+    padding: 5px 10px;
+}
+
+.menu .menu-item .menu-dropdown > *:hover {
+    background-color: var(--clr-bg-main);
+}
+
+.menu .menu-item:focus .menu-dropdown {
+    display: grid;
+    grid-template-columns: max-content;
+    text-align: left;
 }
