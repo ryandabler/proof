@@ -15,3 +15,7 @@
     color: var(--clr-fg-main);
     font-size: 15px;
 }
+
+.menu .menu-item:hover {
+    background-color: var(--clr-bg-alt);
+}
