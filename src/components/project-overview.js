@@ -40,12 +40,14 @@ export class ProjectOverview extends React.Component {
     render() {
         return (
             <div className="project-overview">
-                <span>Name</span>
-                <span>{this.props.project.name}</span>
-                <span>Remote</span>
-                <span>{this.props.project.remote}</span>
-                <span>Pagelist</span>
-                <span className="page-list">{this.generatePageList()}</span>
+                <div className="project-data">
+                    <span>Name</span>
+                    <span>{this.props.project.name}</span>
+                    <span>Remote</span>
+                    <span>{this.props.project.remote}</span>
+                    <span>Pagelist</span>
+                    <span className="page-list">{this.generatePageList()}</span>
+                </div>
                 <ImageZone file={this.props.file} pageIndex={0} success={this.props.setPageCount} />
             </div>
         );
