@@ -10,8 +10,11 @@ import { updateRecordInDB } from "../indexeddb";
 import "./proofer.css";
 
 export function Proofer(props) {
+    let timeout;
+
     function inputHandler(data) {
-        console.log(data);
+        window.clearTimeout(timeout);
+        timeout = window.setTimeout(() => props.setPage(data), 3000);
     }
 
     return (
