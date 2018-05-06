@@ -21,22 +21,22 @@
     background-color: var(--clr-bg-alt);
 }
 
-.menu .menu-item .menu-dropdown {
+.menu .menu-group .menu-dropdown.hidden {
     display: none;
+}
+
+.menu .menu-group .menu-dropdown {
+    display: grid;
+    grid-template-columns: max-content;
+    text-align: left;
     position: absolute;
     background-color: var(--clr-bg-alt);
 }
 
-.menu .menu-item .menu-dropdown > * {
+.menu .menu-group .menu-dropdown > * {
     padding: 5px 10px;
 }
 
-.menu .menu-item .menu-dropdown > *:hover {
+.menu .menu-group .menu-dropdown > *:hover {
     background-color: var(--clr-bg-main);
-}
-
-.menu .menu-item:focus .menu-dropdown {
-    display: grid;
-    grid-template-columns: max-content;
-    text-align: left;
 }
