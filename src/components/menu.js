@@ -48,7 +48,7 @@ export default function Menu() {
             ]
         ]
     ];
-    
+
     const refs = {};
 
     const menuButtons = menuItems.map(menuGroup => 
@@ -59,7 +59,7 @@ export default function Menu() {
                     <span key={item}>{item}</span>
                 )}
             </div>
-            </div>
+        </div>
     );
 
     return (
