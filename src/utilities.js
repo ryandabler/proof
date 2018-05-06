@@ -6,3 +6,37 @@ export function extractFormValues(elements, initObj = {}) {
     });
     return Object.assign(newValues, initObj);
 }
+
+export function showMenu(domElem) {
+    domElem.classList.remove("hidden");
+}
+
+export function hideMenu(domElem) {
+    domElem.classList.add("hidden");
+}
+
+export function toggleMenu(event, groupName, refs) {
+    event.stopPropagation();
+    const ref = refs[groupName];
+
+    // Hide any other open menu
+    Object.keys(refs)
+        .filter(_ref => refs[_ref] !== ref)
+        .forEach(_ref => hideMenu(refs[_ref]));
+
+    // Toggle current menu
+    if (ref.classList.contains("hidden")) {
+        showMenu(ref);
+
+        window.addEventListener("click", () => {
+            Object.keys(refs).forEach(_ref => 
+                hideMenu(refs[_ref])
+            );
+
+            
+        });
+    } else {
+        hideMenu(ref);
+    }
+    
+}
