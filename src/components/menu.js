@@ -10,9 +10,9 @@ export default function Menu() {
 
     function onMouseEnter(e) {
         const menuDisplayed = document.querySelector(".menu-group .menu-dropdown:not(.hidden)");
-        e.target.focus();
         
         if (menuDisplayed) {
+            e.target.focus();
             hideMenu(menuDisplayed);
 
             // If menu is open and we enter/leave the menu, we need to target
