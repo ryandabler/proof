@@ -14,7 +14,12 @@ export default function Menu() {
         
         if (menuDisplayed) {
             hideMenu(menuDisplayed);
-            const newMenuElem = e.target.nextSibling;
+
+            // If menu is open and we enter/leave the menu, we need to target
+            // the parent element and not the nextSibling
+            const newMenuElem = e.target.tagName === "SPAN"
+                ? e.target.parentElement
+                : e.target.nextSibling;
             showMenu(newMenuElem);
         }
     }
