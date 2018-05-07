@@ -1,54 +1,11 @@
 import React from "react";
 
 import { toggleMenu } from "../utilities";
+import { menuItems } from "../config";
 
 import "./menu.css";
 
 export default function Menu() {
-    const menuItems = [
-        [
-            "File",
-            [
-                "New Project",
-                "Open Project",
-                "Export...",
-                "Import..."
-            ]
-        ], [
-            "View",
-            [
-                "Preview",
-                "Header/Footer"
-            ]
-        ], [
-            "Edit",
-            [
-                "Insert character"
-            ]
-        ], [
-            "Settings",
-            [
-                "Parser",
-                "Preferences"
-            ]
-        ], [
-            "Project",
-            [
-                "Add image",
-                "Edit details",
-                "Delete",
-                "Push",
-                "Pull"
-            ]
-        ], [
-            "About",
-            [
-                "Help",
-                "About"
-            ]
-        ]
-    ];
-
     const refs = {};
 
     const menuButtons = menuItems.map(menuGroup => 
