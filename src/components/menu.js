@@ -10,6 +10,8 @@ export default function Menu() {
 
     function onMouseEnter(e) {
         const menuDisplayed = document.querySelector(".menu-group .menu-dropdown:not(.hidden)");
+        e.target.focus();
+        
         if (menuDisplayed) {
             hideMenu(menuDisplayed);
             const newMenuElem = e.target.nextSibling;
