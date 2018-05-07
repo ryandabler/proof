@@ -28,13 +28,15 @@ export function toggleMenu(event, groupName, refs) {
     if (ref.classList.contains("hidden")) {
         showMenu(ref);
 
-        window.addEventListener("click", () => {
-            Object.keys(refs).forEach(_ref => 
-                hideMenu(refs[_ref])
-            );
-
-            
-        });
+        document.addEventListener(
+            "mousedown",
+            () => {
+                Object.keys(refs).forEach(ref => 
+                    hideMenu(refs[ref])
+                );
+            },
+            { once: true }
+        );
     } else {
         hideMenu(ref);
     }
