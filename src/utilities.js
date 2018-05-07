@@ -16,7 +16,6 @@ export function hideMenu(domElem) {
 }
 
 export function toggleMenu(event, groupName, refs) {
-    event.stopPropagation();
     const ref = refs[groupName];
 
     // Hide any other open menu
@@ -30,10 +29,12 @@ export function toggleMenu(event, groupName, refs) {
 
         document.addEventListener(
             "mousedown",
-            () => {
-                Object.keys(refs).forEach(ref => 
-                    hideMenu(refs[ref])
-                );
+            (e) => {
+                if (!e.target.classList.contains("menu-item")) {
+                    Object.keys(refs).forEach(ref => 
+                        hideMenu(refs[ref])
+                    );
+                }
             },
             { once: true }
         );
