@@ -47,14 +47,10 @@ App.propTypes = {
 	loadData: PropTypes.func
 };
 
-const mapStateToProps = state => ({
-	
-});
-
 const mapDispatchToProps = dispatch => ({
 	loadData: (data) => {
 		dispatch(loadProjects(data));
 	}
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
